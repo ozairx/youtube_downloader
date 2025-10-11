@@ -1,0 +1,43 @@
+Source: yt-down
+Section: sound
+Priority: optional
+Maintainer: Ozair Couto <ozair@example.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-setuptools,
+               python3-pip,
+               python3-click,
+               python3-tqdm,
+               python3-dotenv,
+               python3-mutagen
+Standards-Version: 4.6.0
+Homepage: https://github.com/ozairx/yt-down
+Vcs-Git: https://github.com/ozairx/yt-down.git
+Vcs-Browser: https://github.com/ozairx/yt-down
+Rules-Requires-Root: no
+
+Package: yt-down
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         python3-click,
+         python3-tqdm,
+         python3-dotenv,
+         python3-mutagen,
+         python3-pytube,
+         python3-moviepy,
+         ffmpeg
+Description: YouTube to MP3 downloader and playlist converter
+ yt-down is a modern command-line tool for downloading YouTube videos
+ and converting them to MP3 format. It supports:
+ .
+  * Download of individual videos and complete playlists
+  * Parallel processing for faster downloads
+  * Configurable audio quality and output formats
+  * Automatic ID3 metadata tagging
+  * Progress bars and detailed logging
+  * Robust error handling and recovery
+ .
+ The tool is designed for personal use and educational purposes.
+ Please respect copyright laws and YouTube's terms of service.
