@@ -1,0 +1,41 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "python.defaultInterpreterPath": "python3",
+  "python.analysis.typeCheckingMode": "basic",
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "files.associations": {
+    "*.py": "python"
+  },
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/node_modules": true,
+    "**/downloads": true,
+    "**/output": true,
+    "**/.git": true,
+    "**/.uv_cache": true
+  },
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.executeInFileDir": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "python": true
+  },
+  "github.copilot.advanced": {
+    "length": 500,
+    "temperature": 0.1,
+    "top_p": 1,
+    "inlineSuggestEnable": true
+  },
+  "cSpell.words": ["moviepy", "pytube", "tqdm"]
+}

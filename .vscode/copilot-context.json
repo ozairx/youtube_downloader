@@ -1,0 +1,28 @@
+{
+  "github.copilot.chat.context": {
+    "projectType": "python-media-downloader",
+    "frameworks": ["pytube", "moviepy", "click"],
+    "purpose": "YouTube video/playlist downloader with MP3 conversion",
+    "patterns": [
+      "youtube url validation",
+      "video/audio download",
+      "media format conversion",
+      "file metadata handling",
+      "progress tracking",
+      "error handling for network operations",
+      "CLI argument parsing",
+      "async/concurrent downloads"
+    ]
+  },
+  "github.copilot.advanced": {
+    "contextualSuggestions": true,
+    "projectAwareness": {
+      "enabled": true,
+      "description": "Python application for downloading YouTube content and converting to MP3 format"
+    },
+    "customPrompts": {
+      "enabled": true,
+      "context": "This is a YouTube downloader project using pytube for downloading and moviepy for audio conversion. Focus on media handling, error recovery, and user experience."
+    }
+  }
+}
