@@ -41,12 +41,15 @@
     "albumartist",
     "audiofile",
     "easyid",
+    "ensurepath",
+    "FLAC",
     "levelname",
     "moviepy",
     "opcoes",
     "pbar",
     "pytube",
     "tqdm",
+    "Vorbis",
     "youtu"
   ]
 }
