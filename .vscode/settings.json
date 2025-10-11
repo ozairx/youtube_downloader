@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Default Dark Modern",
   "python.defaultInterpreterPath": "python3",
   "python.analysis.typeCheckingMode": "basic",
   "[python]": {
@@ -37,5 +37,16 @@
     "top_p": 1,
     "inlineSuggestEnable": true
   },
-  "cSpell.words": ["moviepy", "pytube", "tqdm"]
+  "cSpell.words": [
+    "albumartist",
+    "audiofile",
+    "easyid",
+    "levelname",
+    "moviepy",
+    "opcoes",
+    "pbar",
+    "pytube",
+    "tqdm",
+    "youtu"
+  ]
 }
