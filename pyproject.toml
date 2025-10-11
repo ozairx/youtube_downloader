@@ -7,9 +7,9 @@ requires-python = ">=3.9"
 dependencies = [
     "moviepy>=1.0.3,<2.0",
     "python-dotenv>=1.0.0",
-    "pytube>=15.0.0",
+    "pytubefix>=10.0.0",
     "click>=8.0.0",
-    "tqdm>=4.60.0",
+    "rich>=13.0.0",
     "mutagen>=1.45.0",
 ]
 authors = [{ name = "Ozair Couto", email = "ozair@example.com" }]
