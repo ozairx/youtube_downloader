@@ -8,6 +8,13 @@ from pathlib import Path
 from moviepy.editor import AudioFileClip
 from mutagen.easyid3 import EasyID3
 from mutagen.id3._util import ID3NoHeaderError
+from rich.progress import (
+    BarColumn,
+    Progress,
+    SpinnerColumn,
+    TextColumn,
+    TimeElapsedColumn,
+)
 
 from .config import Config
 
@@ -105,16 +112,32 @@ class AudioConverter:
         """
         converted_files = []
 
-        for file_path, title, artist in files_and_metadata:
-            self.logger.info(f"Converting: {title}")
+        # Criar barra de progresso moderna para conversão
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[bold cyan]{task.description}"),
+            BarColumn(complete_style="cyan", finished_style="bright_cyan"),
+            TextColumn("[progress.percentage]{task.percentage:>3.1f}%"),
+            TextColumn("({task.completed}/{task.total})"),
+            TimeElapsedColumn(),
+            expand=True,
+        ) as progress:
+            task = progress.add_task(
+                "🎧 Convertendo para MP3", total=len(files_and_metadata)
+            )
 
-            converted_file = self.convert_to_mp3(file_path, title, artist)
+            for file_path, title, artist in files_and_metadata:
+                self.logger.info(f"Converting: {title}")
 
-            if converted_file:
-                converted_files.append(converted_file)
-                self.logger.info(f"Successfully converted: {converted_file}")
-            else:
-                self.logger.error(f"Failed to convert: {file_path}")
+                converted_file = self.convert_to_mp3(file_path, title, artist)
+
+                if converted_file:
+                    converted_files.append(converted_file)
+                    self.logger.info(f"Successfully converted: {converted_file}")
+                else:
+                    self.logger.error(f"Failed to convert: {file_path}")
+
+                progress.update(task, advance=1)
 
         self.logger.info(
             f"Batch conversion completed. {len(converted_files)}/{len(files_and_metadata)} files converted"

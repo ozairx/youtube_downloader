@@ -5,8 +5,15 @@ YouTube downloader implementation.
 import logging
 from typing import Any
 
-from pytube import Playlist, YouTube
-from tqdm import tqdm
+from pytubefix import Playlist, YouTube
+from rich.progress import (
+    BarColumn,
+    Progress,
+    SpinnerColumn,
+    TextColumn,
+    TimeElapsedColumn,
+    TimeRemainingColumn,
+)
 
 from .config import Config
 from .utils import is_youtube_playlist_url, is_youtube_url, normalize_youtube_url
@@ -104,8 +111,21 @@ class YouTubeDownloader:
 
             downloaded_files = []
 
-            # Download each video with progress bar
-            with tqdm(total=video_count, desc="Downloading playlist") as pbar:
+            # Criar barra de progresso moderna com rich
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[bold blue]{task.description}"),
+                BarColumn(complete_style="green", finished_style="bright_green"),
+                TextColumn("[progress.percentage]{task.percentage:>3.1f}%"),
+                TextColumn("({task.completed}/{task.total})"),
+                TimeElapsedColumn(),
+                TimeRemainingColumn(),
+                expand=True,
+            ) as progress:
+                task = progress.add_task(
+                    f"🎵 Baixando playlist: {title[:30]}...", total=video_count
+                )
+
                 for i, video_url in enumerate(playlist.video_urls, 1):
                     self.logger.info(f"Downloading video {i}/{video_count}")
 
@@ -118,7 +138,7 @@ class YouTubeDownloader:
                     else:
                         self.logger.warning(f"Failed to download video: {video_url}")
 
-                    pbar.update(1)
+                    progress.update(task, advance=1)
 
             self.logger.info(
                 f"Playlist download completed. {len(downloaded_files)}/{video_count} videos downloaded"

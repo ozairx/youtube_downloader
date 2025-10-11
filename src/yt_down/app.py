@@ -5,7 +5,7 @@ Main orchestrator for yt-down application.
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from pytube import YouTube
+from pytubefix import YouTube
 
 from .config import Config
 from .converter import AudioConverter
