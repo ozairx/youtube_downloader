@@ -1,50 +1,89 @@
 [project]
 name = "yt-down"
 version = "0.1.0"
-description = "YouTube to MP3 downloader and playlist converter"
+description = "YouTube to MP3 downloader and playlist converter with parallel processing"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.9"
 dependencies = [
     "moviepy>=1.0.3,<2.0",
-    "python-dotenv>=1.1.1",
+    "python-dotenv>=1.0.0",
     "pytube>=15.0.0",
-    "ruff>=0.14.0",
-    "click>=8.1.0",
-    "tqdm>=4.66.0",
-    "mutagen>=1.47.0",
+    "click>=8.0.0",
+    "tqdm>=4.60.0",
+    "mutagen>=1.45.0",
 ]
-authors = [{ name = "Your Name", email = "your.email@example.com" }]
+authors = [{ name = "Ozair Couto", email = "ozair@example.com" }]
 license = { text = "MIT" }
-keywords = ["youtube", "mp3", "download", "playlist", "converter"]
+keywords = [
+    "youtube",
+    "mp3",
+    "download",
+    "playlist",
+    "converter",
+    "audio",
+    "music",
+]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Multimedia :: Sound/Audio :: Conversion",
     "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
 ]
 
 [project.urls]
-Homepage = "https://github.com/username/yt-down"
-Repository = "https://github.com/username/yt-down"
-Issues = "https://github.com/username/yt-down/issues"
+Homepage = "https://github.com/ozairx/yt-down"
+Repository = "https://github.com/ozairx/yt-down"
+Issues = "https://github.com/ozairx/yt-down/issues"
+Documentation = "https://github.com/ozairx/yt-down#readme"
+Changelog = "https://github.com/ozairx/yt-down/blob/main/CHANGELOG.md"
 
 [project.scripts]
-yt-down = "src.yt_down.cli:main"
+yt-down = "yt_down.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.17.0"]
 build-backend = "hatchling.build"
 
 [tool.uv]
-dev-dependencies = ["pytest>=7.0", "pytest-cov>=4.0", "mypy>=1.0"]
+dev-dependencies = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+
+[tool.hatchling.build.targets.wheel]
+packages = ["src/yt_down"]
+
+[tool.hatchling.build.targets.sdist]
+include = ["/src", "/README.md", "/LICENSE", "/pyproject.toml"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py313"
+target-version = "py39"
 
 [tool.ruff.lint]
 select = [
