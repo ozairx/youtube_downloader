@@ -41,7 +41,7 @@ class AudioConverter:
         output_path = self.config.get_output_path(title, artist)
 
         try:
-            self.logger.info(f"Converting {input_path.name} to MP3")
+            self.logger.debug(f"Converting {input_path.name} to MP3")
 
             # Load audio clip
             audio_clip = AudioFileClip(str(input_path))
@@ -57,7 +57,7 @@ class AudioConverter:
             # Close clip to free resources
             audio_clip.close()
 
-            self.logger.info(f"Conversion completed: {output_path}")
+            self.logger.debug(f"Conversion completed: {output_path}")
 
             # Add metadata
             self._add_metadata(output_path, title, artist)
@@ -127,19 +127,19 @@ class AudioConverter:
             )
 
             for file_path, title, artist in files_and_metadata:
-                self.logger.info(f"Converting: {title}")
+                self.logger.debug(f"Converting: {title}")
 
                 converted_file = self.convert_to_mp3(file_path, title, artist)
 
                 if converted_file:
                     converted_files.append(converted_file)
-                    self.logger.info(f"Successfully converted: {converted_file}")
+                    self.logger.debug(f"Successfully converted: {converted_file}")
                 else:
                     self.logger.error(f"Failed to convert: {file_path}")
 
                 progress.update(task, advance=1)
 
-        self.logger.info(
+        self.logger.debug(
             f"Batch conversion completed. {len(converted_files)}/{len(files_and_metadata)} files converted"
         )
         return converted_files

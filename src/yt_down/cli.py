@@ -68,8 +68,19 @@ def main(
 ) -> None:
     """Download YouTube videos and convert them to MP3."""
     # Setup logging
-    log_level = "DEBUG" if verbose else "INFO"
-    logger = setup_logging(log_level)
+    if verbose:
+        log_level = "DEBUG"
+        logger = setup_logging(log_level)
+        logger.info("Starting yt-down v0.1.0")
+        logger.info(
+            f"Output directory: {Path(output_dir) if output_dir else Path.cwd() / 'downloads'}"
+        )
+        logger.info(f"Audio quality: {quality}kbps")
+        logger.info(f"Output format: {format}")
+    else:
+        # In non-verbose mode, suppress INFO logs (only show WARNING and above)
+        log_level = "WARNING"
+        logger = setup_logging(log_level, quiet_mode=True)
 
     # Load configuration
     config = Config()
@@ -92,11 +103,6 @@ def main(
         click.echo("Error: You cannot specify both --url and --playlist", err=True)
         raise click.Abort()
 
-    logger.info("Starting yt-down v0.1.0")
-    logger.info(f"Output directory: {config.download_dir}")
-    logger.info(f"Audio quality: {config.audio_quality}kbps")
-    logger.info(f"Output format: {config.output_format}")
-
     try:
         from .app import YTDownApp
 
@@ -104,7 +110,9 @@ def main(
         app = YTDownApp(config)
 
         if url:
-            logger.info(f"Downloading single video: {url}")
+            if verbose:
+                logger.info(f"Downloading single video: {url}")
+
             success = app.process_single_video(url)
             if success:
                 click.echo("✓ Video downloaded and converted successfully!")
@@ -113,7 +121,9 @@ def main(
                 raise click.Abort()
 
         elif playlist:
-            logger.info(f"Downloading playlist: {playlist}")
+            if verbose:
+                logger.info(f"Downloading playlist: {playlist}")
+
             successful, total = app.process_playlist(playlist)
             if successful > 0:
                 click.echo(
@@ -124,7 +134,10 @@ def main(
                 raise click.Abort()
 
     except Exception as e:
-        logger.error(f"An error occurred: {e}")
+        if verbose:
+            logger.error(f"An error occurred: {e}")
+        else:
+            click.echo(f"✗ Error: {e}", err=True)
         raise click.Abort() from e
 
 

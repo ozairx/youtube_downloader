@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 def setup_logging(
-    log_level: str = "INFO", log_file: str | None = None
+    log_level: str = "INFO", log_file: str | None = None, quiet_mode: bool = False
 ) -> logging.Logger:
     """Setup logging configuration."""
     # Create logger
@@ -25,11 +25,12 @@ def setup_logging(
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
-    # Console handler
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
+    # Console handler only if not in quiet mode
+    if not quiet_mode:
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setLevel(logging.INFO)
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
 
     # File handler (if log_file is specified)
     if log_file:

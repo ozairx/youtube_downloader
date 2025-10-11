@@ -41,7 +41,7 @@ class YouTubeDownloader:
             return None
 
         try:
-            self.logger.info(f"Fetching video info for: {normalized_url}")
+            self.logger.debug(f"Fetching video info for: {normalized_url}")
 
             # Create YouTube object
             yt = YouTube(
@@ -55,9 +55,9 @@ class YouTubeDownloader:
             author = yt.author
             length = yt.length
 
-            self.logger.info(f"Title: {title}")
-            self.logger.info(f"Author: {author}")
-            self.logger.info(f"Duration: {length}s")
+            self.logger.debug(f"Title: {title}")
+            self.logger.debug(f"Author: {author}")
+            self.logger.debug(f"Duration: {length}s")
 
             # Get the highest quality audio stream
             audio_stream = yt.streams.filter(
@@ -72,7 +72,7 @@ class YouTubeDownloader:
             output_path = self.config.get_output_path(title, author)
             temp_path = self.config.temp_dir / f"{output_path.stem}_temp.mp4"
 
-            self.logger.info(f"Downloading to: {temp_path}")
+            self.logger.debug(f"Downloading to: {temp_path}")
 
             # Download the audio
             audio_stream.download(
@@ -80,7 +80,7 @@ class YouTubeDownloader:
                 filename=temp_path.name,
             )
 
-            self.logger.info(f"Download completed: {temp_path}")
+            self.logger.debug(f"Download completed: {temp_path}")
             return str(temp_path)
 
         except Exception as e:
@@ -95,7 +95,7 @@ class YouTubeDownloader:
             return []
 
         try:
-            self.logger.info(f"Fetching playlist info for: {url}")
+            self.logger.debug(f"Fetching playlist info for: {url}")
 
             # Create Playlist object
             playlist = Playlist(url)
@@ -106,8 +106,8 @@ class YouTubeDownloader:
             video_count = len(playlist.video_urls)
 
             self.logger.info(f"Playlist: {title}")
-            self.logger.info(f"Owner: {owner}")
-            self.logger.info(f"Videos: {video_count}")
+            self.logger.debug(f"Owner: {owner}")
+            self.logger.debug(f"Videos: {video_count}")
 
             downloaded_files = []
 
@@ -127,20 +127,20 @@ class YouTubeDownloader:
                 )
 
                 for i, video_url in enumerate(playlist.video_urls, 1):
-                    self.logger.info(f"Downloading video {i}/{video_count}")
+                    self.logger.debug(f"Downloading video {i}/{video_count}")
 
                     # Download individual video
                     downloaded_file = self.download_video(video_url)
 
                     if downloaded_file:
                         downloaded_files.append(downloaded_file)
-                        self.logger.info(f"Successfully downloaded: {downloaded_file}")
+                        self.logger.debug(f"Successfully downloaded: {downloaded_file}")
                     else:
                         self.logger.warning(f"Failed to download video: {video_url}")
 
                     progress.update(task, advance=1)
 
-            self.logger.info(
+            self.logger.debug(
                 f"Playlist download completed. {len(downloaded_files)}/{video_count} videos downloaded"
             )
             return downloaded_files
