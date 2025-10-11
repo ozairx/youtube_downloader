@@ -1,7 +1,7 @@
 [project]
 name = "yt-down"
 version = "0.1.0"
-description = "Add your description here"
+description = "YouTube to MP3 downloader and playlist converter"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -9,4 +9,60 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "pytube>=15.0.0",
     "ruff>=0.14.0",
+    "click>=8.1.0",
+    "tqdm>=4.66.0",
+    "mutagen>=1.47.0",
 ]
+authors = [{ name = "Your Name", email = "your.email@example.com" }]
+license = { text = "MIT" }
+keywords = ["youtube", "mp3", "download", "playlist", "converter"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio :: Conversion",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.urls]
+Homepage = "https://github.com/username/yt-down"
+Repository = "https://github.com/username/yt-down"
+Issues = "https://github.com/username/yt-down/issues"
+
+[project.scripts]
+yt-down = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = ["pytest>=7.0", "pytest-cov>=4.0", "mypy>=1.0"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long, handled by formatter
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
