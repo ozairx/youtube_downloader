@@ -78,15 +78,31 @@ class YTDownApp:
                 self.logger.error("No videos were downloaded from playlist")
                 return 0, 0
 
-            # Prepare conversion data
+            # Prepare conversion data with metadata extraction
             conversion_data = []
             for downloaded_file in downloaded_files:
                 try:
-                    # Extract metadata from original video
-                    # This is a simplified approach - in practice you'd want to store
-                    # metadata during download to avoid re-fetching
-                    video_title = "Unknown Title"
-                    video_author = "Unknown Artist"
+                    # Extract metadata from filename or use a mapping
+                    # For now, we'll use a basic approach based on temp filename
+                    from pathlib import Path
+
+                    temp_path = Path(downloaded_file)
+                    # Extract from temp filename pattern: "Artist - Title_temp.mp4"
+                    base_name = temp_path.stem.replace("_temp", "")
+
+                    # Try to split by " - " to get artist and title
+                    if " - " in base_name:
+                        parts = base_name.split(" - ", 1)
+                        if len(parts) == 2:
+                            video_author = parts[0].strip()
+                            video_title = parts[1].strip()
+                        else:
+                            video_author = "Unknown Artist"
+                            video_title = base_name
+                    else:
+                        video_author = "Unknown Artist"
+                        video_title = base_name
+
                     conversion_data.append((downloaded_file, video_title, video_author))
                 except Exception as e:
                     self.logger.warning(
