@@ -45,6 +45,7 @@
     "FLAC",
     "levelname",
     "moviepy",
+    "mypy",
     "opcoes",
     "pbar",
     "pytube",
