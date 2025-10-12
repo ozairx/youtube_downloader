@@ -1,4 +1,5 @@
 # Maintainer: Ozair Couto <ozair@example.com>
+# shellcheck shell=bash
 
 pkgname=yt-down
 pkgver=0.1.0
@@ -42,7 +43,7 @@ check() {
 }
 
 package() {
-    cd "$pkgname-$pkgver"
+    cd "$pkgname-$pkgver" || exit
     python -m installer --destdir="$pkgdir" dist/*.whl
     
     # Install license
