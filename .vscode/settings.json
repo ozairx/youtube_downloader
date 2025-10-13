@@ -36,21 +36,5 @@
     "temperature": 0.1,
     "top_p": 1,
     "inlineSuggestEnable": true
-  },
-  "cSpell.words": [
-    "albumartist",
-    "audiofile",
-    "easyid",
-    "ensurepath",
-    "FLAC",
-    "levelname",
-    "moviepy",
-    "mypy",
-    "opcoes",
-    "pbar",
-    "pytube",
-    "tqdm",
-    "Vorbis",
-    "youtu"
-  ]
+  }
 }
