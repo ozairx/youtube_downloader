@@ -16,19 +16,14 @@
   - [ ] Configurar credenciais do PyPI
   - [ ] Publicar primeira versão (0.1.0)
   - [ ] Testar instalação via `pipx install yt-down`
+  - [ ] Testar instalação via `uvx yt-down`
 
-- [x] **Empacotamento para repositórios Linux**
-  - [x] **Debian/Ubuntu (APT)**
-    - [x] Criar arquivo `debian/control` com dependências
-    - [x] Configurar `debian/rules` para build
-    - [x] Criar `debian/changelog` e `debian/compat`
-    - [ ] Testar build com `dpkg-buildpackage`
-    - [ ] Submeter para repositório PPA ou oficial
-  - [x] **Arch Linux (AUR)**
-    - [x] Criar PKGBUILD com dependências Python
-    - [ ] Testar build local com `makepkg`
-    - [ ] Submeter para AUR (Arch User Repository)
-    - [ ] Configurar CI para verificar builds automaticamente
+- [x] **Distribuição moderna via pipx/uvx**
+  - [x] Configurar pyproject.toml para instalação via pipx
+  - [x] Criar script de instalação que prefere uv/uvx
+  - [x] Atualizar documentação para focar em pipx/uvx
+  - [ ] Testar fluxo completo de instalação
+  - [x] Remover dependências de empacotamento APT/AUR
 
 ## 🚀 Melhorias de Funcionalidade
 
@@ -173,17 +168,8 @@
 - [x] `INSTALL.md` - Guia completo de instalação
 - [x] `pyproject.toml` - Configuração para PyPI e pipx
 - [x] `scripts/build.sh` - Script automatizado de build
-- [x] `scripts/install.sh` - Script de instalação via pipx
+- [x] `scripts/install.sh` - Script de instalação via pipx/uvx
 - [x] `scripts/release.sh` - Script completo de release
-
-### 🐧 **Empacotamento Linux**
-
-- [x] `packaging/debian/` - Arquivos para pacotes DEB
-  - [x] `control` - Dependências e metadados
-  - [x] `rules` - Regras de build
-  - [x] `changelog` - Histórico de mudanças
-  - [x] `compat` - Versão do debhelper
-- [x] `packaging/arch/PKGBUILD` - Arquivo para Arch Linux
 
 ### 🔄 **CI/CD e Automação**
 
@@ -210,26 +196,27 @@
    bash scripts/release.sh 0.1.0
    ```
 
-2. **Testar instalação via pipx:**
+## 📅 Cronograma Sugerido
 
-   ```bash
-   pipx install yt-down
-   ```
+### Fase 1 (1-2 semanas) - Distribuição Moderna
 
-3. **Submeter para AUR:**
+- Configurar pipx/uvx e PyPI
+- Testes de instalação via uv e pipx
 
-   ```bash
-   cd packaging/arch
-   makepkg -si  # teste local
-   # Depois submeter para AUR
-   ```
+### Fase 2 (2-3 semanas) - Melhorias Core
 
-4. **Criar PPA Ubuntu:**
+- Implementar features prioritárias
+- Suite de testes básica
 
-   ```bash
-   cd packaging/debian
-   dpkg-buildpackage -us -uc
-   ```
+### Fase 3 (1 mês) - Estabilização
+
+- CI/CD completo
+- Documentação abrangente
+- Primeira release estável (1.0.0)
+
+### Fase 4 (Contínuo) - Expansão
+
+- Features avançadas baseadas em feedback
 
 ## 📅 Cronograma Sugerido
 

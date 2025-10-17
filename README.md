@@ -40,25 +40,28 @@ yt-down/
 
 ## Instalação
 
-1. Clone o repositório:
+### 🚀 Instalação Rápida (Recomendada)
 
 ```bash
-git clone <url-do-repositório>
-cd yt-down
+# Usando uvx (mais rápido, sem instalação permanente)
+uvx yt-down --help
+
+# Ou usando pipx (instalação isolada)
+pipx install yt-down
 ```
 
-2. Instale as dependências com UV:
+### 🔧 Instalação para Desenvolvimento
 
 ```bash
+# Clone o repositório
+git clone https://github.com/ozairx/yt-down.git
+cd yt-down
+
+# Instale as dependências com UV
 uv sync
 ```
 
-3. Configure as variáveis de ambiente (opcional):
-
-```bash
-cp .env.example .env
-# Edite o arquivo .env conforme necessário
-```
+Para mais opções de instalação, veja o [Guia de Instalação](docs/INSTALL.md).
 
 ## Uso
 

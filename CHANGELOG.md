@@ -7,10 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Foco na distribuição via pipx e uvx apenas
+- Removido suporte para empacotamento APT e AUR
+- Atualizada documentação de instalação
+- Script de instalação agora prefere UV sobre pipx
+
 ### Added
 
-- Preparação para distribuição via pipx
-- Configuração para empacotamento em repositórios Linux
+- Suporte completo para instalação via uvx
+- Documentação atualizada para métodos de instalação modernos
 
 ## [0.1.0] - 2025-10-11
 

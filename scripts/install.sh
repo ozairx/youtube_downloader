@@ -1,37 +1,51 @@
 #!/bin/bash
-# Installation script for yt-down via pipx
+# Installation script for yt-down via uv tool or pipx
 
 set -e
 
-echo "🚀 Installing yt-down via pipx..."
+echo "🚀 Installing yt-down..."
 
-# Check if pipx is installed
-if ! command -v pipx &> /dev/null; then
-    echo "❌ pipx is not installed. Installing pipx first..."
+# Check if uv is available and prefer it
+if command -v uv &> /dev/null; then
+    echo "✨ Installing via uv tool (recommended)..."
     
-    if command -v uv &> /dev/null; then
-        echo "📦 Installing pipx via uv..."
-        uv tool install pipx
-    elif command -v pip &> /dev/null; then
-        echo "📦 Installing pipx via pip..."
-        pip install --user pipx
-        pipx ensurepath
+    if [ -f "dist/yt_down-0.1.0-py3-none-any.whl" ]; then
+        echo "🔧 Installing from local build..."
+        uv tool install dist/yt_down-0.1.0-py3-none-any.whl --force
     else
-        echo "❌ Neither uv nor pip found. Please install one of them first."
-        exit 1
+        echo "📦 Installing from PyPI..."
+        uv tool install yt-down
     fi
-fi
+    
+    echo "✅ Installation completed via uv!"
+    echo "�� You can also run directly without installation: uvx yt-down --help"
+    
+# Fallback to pipx
+elif command -v pipx &> /dev/null; then
+    echo "📦 Installing via pipx..."
+    
+    if [ -f "dist/yt_down-0.1.0-py3-none-any.whl" ]; then
+        echo "🔧 Installing from local build..."
+        pipx install dist/yt_down-0.1.0-py3-none-any.whl --force
+    else
+        echo "📦 Installing from PyPI..."
+        pipx install yt-down
+    fi
+    
+    echo "✅ Installation completed via pipx!"
 
-# Install yt-down
-echo "📦 Installing yt-down..."
-if [ -f "dist/yt_down-0.1.0-py3-none-any.whl" ]; then
-    # Install from local wheel
-    echo "🔧 Installing from local build..."
-    pipx install dist/yt_down-0.1.0-py3-none-any.whl --force
+# Neither uv nor pipx available
 else
-    # Install from PyPI (when available)
-    echo "🌐 Installing from PyPI..."
-    pipx install yt-down
+    echo "❌ Neither uv nor pipx found."
+    echo "Please install one of them first:"
+    echo ""
+    echo "📦 Install UV (recommended):"
+    echo "  curl -LsSf https://astral.sh/uv/install.sh | sh"
+    echo ""
+    echo "📦 Install pipx:"
+    echo "  pip install pipx"
+    echo ""
+    exit 1
 fi
 
 # Verify installation
@@ -40,7 +54,7 @@ if command -v yt-down &> /dev/null; then
     echo "✅ yt-down installed successfully!"
     echo "📍 Installation location: $(which yt-down)"
     echo "📋 Version info:"
-    yt-down --version
+    yt-down --version 2>/dev/null || echo "Version check skipped (not yet published)"
     echo ""
     echo "🎯 Usage examples:"
     echo "  yt-down --url 'https://youtu.be/dQw4w9WgXcQ'"
@@ -48,6 +62,7 @@ if command -v yt-down &> /dev/null; then
     echo "  yt-down --help"
 else
     echo "❌ Installation failed - yt-down command not found"
+    echo "💡 Try restarting your terminal or running 'source ~/.bashrc'"
     exit 1
 fi
 
