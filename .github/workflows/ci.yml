@@ -45,8 +45,8 @@ jobs:
         uv run ruff check .
         uv run ruff format --check .
     
-    - name: Type check with mypy
-      run: uv run mypy src/ --ignore-missing-imports
+    - name: Type check with pyright
+      run: uv run pyright
     
     - name: Test basic functionality
       run: |
