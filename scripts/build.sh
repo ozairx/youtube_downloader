@@ -1,9 +1,9 @@
 #!/bin/bash
-# Build script for yt-down distribution packages
+# Build script for youtube-downloader distribution packages
 
 set -e
 
-echo "🏗️  Building yt-down distribution packages..."
+echo "🏗️  Building youtube-downloader distribution packages..."
 
 # Clean previous builds
 echo "🧹 Cleaning previous builds..."
@@ -43,7 +43,7 @@ python -m venv "$TEMP_VENV"
 source "$TEMP_VENV/bin/activate"
 
 pip install dist/yt_down-0.1.0-py3-none-any.whl
-yt-down --help > /dev/null && echo "✅ CLI test passed" || echo "❌ CLI test failed"
+ytdwn --help > /dev/null && echo "✅ CLI test passed" || echo "❌ CLI test failed"
 
 deactivate
 rm -rf "$TEMP_VENV"
@@ -53,4 +53,4 @@ echo ""
 echo "📋 Next steps:"
 echo "  • Upload to PyPI: twine upload dist/*"
 echo "  • Install via pipx: pipx install dist/yt_down-0.1.0-py3-none-any.whl"
-echo "  • Test from PyPI: pipx install yt-down"
+echo "  • Test from PyPI: pipx install youtube-downloader"

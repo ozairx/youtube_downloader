@@ -1,5 +1,5 @@
 #!/bin/bash
-# Release script for yt-down
+# Release script for youtube-downloader
 
 set -e
 
@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚀 yt-down Release Script${NC}"
+echo -e "${BLUE}🚀 YouTube Downloader Release Script${NC}"
 echo "========================="
 
 # Check if version is provided
@@ -99,6 +99,6 @@ echo "  ✅ Git tag created"
 echo "  📦 Packages built in dist/"
 echo ""
 echo -e "${BLUE}🌐 Installation commands:${NC}"
-echo "  uvx yt-down                # Run directly (recommended)"
-echo "  uv tool install yt-down    # Install permanently via uv"
-echo "  pipx install yt-down       # Install via pipx"
+echo "  uvx ytdwn                           # Run directly (recommended)"
+echo "  uv tool install youtube-downloader  # Install permanently via uv"
+echo "  pipx install youtube-downloader     # Install via pipx"

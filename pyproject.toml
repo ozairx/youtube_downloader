@@ -1,5 +1,5 @@
 [project]
-name = "yt-down"
+name = "youtube_downloader"
 version = "0.1.0"
 description = "YouTube to MP3 downloader and playlist converter with parallel processing"
 readme = "README.md"
@@ -12,7 +12,7 @@ dependencies = [
     "rich>=13.0.0",
     "mutagen>=1.45.0",
 ]
-authors = [{ name = "Ozair Couto", email = "ozair@example.com" }]
+authors = [{ name = "Ozair Couto", email = "zaicoutox@gmail.com" }]
 license = { text = "MIT" }
 keywords = [
     "youtube",
@@ -42,14 +42,14 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ozairx/yt-down"
-Repository = "https://github.com/ozairx/yt-down"
-Issues = "https://github.com/ozairx/yt-down/issues"
-Documentation = "https://github.com/ozairx/yt-down#readme"
-Changelog = "https://github.com/ozairx/yt-down/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/ozairx/youtube_downloader"
+Repository = "https://github.com/ozairx/youtube_downloader"
+Issues = "https://github.com/ozairx/youtube_downloader/issues"
+Documentation = "https://github.com/ozairx/youtube_downloader#readme"
+Changelog = "https://github.com/ozairx/youtube_downloader/blob/main/CHANGELOG.md"
 
 [project.scripts]
-yt-down = "yt_down.cli:main"
+ytdwn = "youtube_downloader.cli:main"
 
 [project.optional-dependencies]
 dev = [
@@ -76,7 +76,8 @@ dev-dependencies = [
 ]
 
 [tool.hatchling.build.targets.wheel]
-packages = ["src/yt_down"]
+packages = ["src/youtube_downloader"]
+only-include = ["src/youtube_downloader"]
 
 [tool.hatchling.build.targets.sdist]
 include = ["/src", "/README.md", "/LICENSE", "/pyproject.toml"]

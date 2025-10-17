@@ -1,258 +1,478 @@
-# 📦 Installation Guide - YT-Down# 📦 Installation Guide - YT-Down
+# 📦 Installation Guide - YouTube Downloader# 📦 Installation Guide - YT-Down# 📦 Installation Guide - YT-Down
 
-This guide covers the recommended ways to install yt-down using modern Python package managers.This guide covers the recommended ways to install yt-down using modern Python package managers.
+This guide covers the recommended ways to install youtube-downloader using modern Python package managers.This guide covers the recommended ways to install yt-down using modern Python package managers.This guide covers the recommended ways to install yt-down using modern Python package managers.
 
-## 🚀 Quick Install (Recommended)## 🚀 Quick Install (Recommended)
+## 🚀 Quick Install (Recommended)## 🚀 Quick Install (Recommended)## 🚀 Quick Install (Recommended)
 
-### Using uvx (Fastest - UV Tool Runner)### Using uvx (Fastest - UV Tool Runner)
+### Using uvx (Fastest - UV Tool Runner)### Using uvx (Fastest - UV Tool Runner)### Using uvx (Fastest - UV Tool Runner)
 
-The fastest way to try yt-down without installing:```bash
+The fastest way to try youtube-downloader without installing:The fastest way to try yt-down without installing:```bash
 
-# Install and run directly without installation
-
-```bashuvx yt-down --help
+```bash# Install and run directly without installation
 
 # Run directly without installation
 
-uvx yt-down --help# Or install permanently via UV
-
-uv tool install yt-down
-
-# Or install permanently via UV```
-
-uv tool install yt-down
-
-```### Using pipx (Isolated Installation)
+uvx ytdwn --help```bashuvx yt-down --help
 
 
 
-### Using pipx (Isolated Installation)```bash
+# Or install permanently via UV# Run directly without installation
+
+uv tool install youtube-downloader
+
+```uvx yt-down --help# Or install permanently via UV
+
+
+
+### Using pipx (Isolated Installation)uv tool install yt-down
+
+
+
+Recommended for permanent installation with isolation:# Or install permanently via UV```
+
+
+
+```bashuv tool install yt-down
 
 # Install pipx if you don't have it
 
+pip install pipx```### Using pipx (Isolated Installation)
+
+
+
+# Install youtube-downloader
+
+pipx install youtube-downloader
+
+### Using pipx (Isolated Installation)```bash
+
+# Use from anywhere
+
+ytdwn --help# Install pipx if you don't have it
+
+```
+
 Recommended for permanent installation with isolation:pip install pipx
+
+### Using pip (Global Installation)
+
+⚠️ **Not recommended** - Use pipx or uvx instead for better isolation
+
+```bash# Install yt-down
+
+```bash
+
+pip install youtube-downloader# Install pipx if you don't have itpipx install yt-down
+
+```
+
+pip install pipx
+
+## 🔧 Development Installation
+
+# Use from anywhere
+
+### From Source (Local Development)
+
+# Install yt-downyt-down --help
+
+```bash
+
+# Clone repositorypipx install yt-down```
+
+git clone https://github.com/ozairx/youtube_downloader.git
+
+cd youtube_downloader
+
+
+
+# Install with UV (recommended)# Use from anywhere### Using pip (Global Installation)
+
+uv sync
+
+uv run python main.py --helpyt-down --help
+
+
+
+# Or install with pip```⚠️ **Not recommended** - Use pipx or uvx instead for better isolation
+
+pip install -e .
+
+```
+
+### Build from Source### Using pip (Global Installation)```bash
+
+```bashpip install yt-down
+
+# Clone and build
+
+git clone https://github.com/ozairx/youtube_downloader.git⚠️ **Not recommended** - Use pipx or uvx instead for better isolation```
+
+cd youtube_downloader
+
+makepkg -si
+
+# Build wheel
+
+bash scripts/build.sh```bash```
+
+
+
+# Install built wheel with pipxpip install yt-down
+
+pipx install dist/youtube_downloader-0.1.0-py3-none-any.whl
+
+```### Fedora/RHEL (RPM)
+
+# Or with uvx
+
+uv tool install dist/youtube_downloader-0.1.0-py3-none-any.whl
+
+```
+
+## 🔧 Development Installation```bash
+
+## 🍎 macOS Installation
+
+# When available
+
+### Using pipx (Recommended)
+
+### From Source (Local Development)# sudo dnf install yt-down
+
+```bash
+
+# Install Python if needed```
+
+brew install python
+
+```bash
+
+# Install pipx
+
+pip install pipx# Clone repository## 🔧 Development Installation
+
+
+
+# Install youtube-downloadergit clone https://github.com/ozairx/yt-down.git
+
+pipx install youtube-downloader
+
+```cd yt-down### From Source
+
+
+
+### Using uvx
+
+
+
+```bash# Install with UV (recommended)```bash
+
+# Install UV first
+
+curl -LsSf https://astral.sh/uv/install.sh | shuv sync# Clone repository
+
+
+
+# Run directlyuv run python main.py --helpgit clone https://github.com/ozairx/yt-down.git
+
+uvx ytdwn --help
+
+cd yt-down
+
+# Or install permanently
+
+uv tool install youtube-downloader# Or install with pip
+
+```
+
+pip install -e .# Install with UV (recommended)
+
+## 🪟 Windows Installation
+
+```uv sync
+
+### Using pipx
+
+uv run python main.py --help
+
+```powershell
+
+# Install Python from python.org if needed### Build from Source
+
+
+
+# Install pipx# Or install with pip
+
+pip install pipx
+
+```bashpip install -e .
+
+# Install youtube-downloader
+
+pipx install youtube-downloader# Clone and build```
+
+```
+
+git clone <https://github.com/ozairx/yt-down.git>
+
+### Using uvx
+
+cd yt-down### Build from Source
+
+```powershell
+
+# Install UV first
+
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Build wheel```bash
+
+# Run directly
+
+uvx ytdwn --helpbash scripts/build.sh# Clone and build
+
+
+
+# Or install permanentlygit clone https://github.com/ozairx/yt-down.git
+
+uv tool install youtube-downloader
+
+```# Install built wheel with pipxcd yt-down
+
+
+
+## 🐧 Linux Installationpipx install dist/yt_down-0.1.0-py3-none-any.whl
+
+
+
+### Using pipx# Build wheel
+
+
+
+```bash# Or with uvxbash scripts/build.sh
+
+# Install Python and pip if needed (Ubuntu/Debian)
+
+sudo apt install python3 python3-pipuv tool install dist/yt_down-0.1.0-py3-none-any.whl
+
+
+
+# Install pipx```# Install built wheel
+
+pip install pipx
+
+pipx install dist/yt_down-0.1.0-py3-none-any.whl
+
+# Add pipx bin to PATH
+
+pipx ensurepath## 🍎 macOS Installation```
+
+
+
+# Install youtube-downloader
+
+pipx install youtube-downloader
+
+```### Using pipx (Recommended)## 🍎 macOS Installation
+
+
+
+### Using uvx
+
+
+
+```bash```bash### Using Homebrew
+
+# Install UV
+
+curl -LsSf https://astral.sh/uv/install.sh | sh# Install Python if needed
+
+
+
+# Run directlybrew install python```bash
+
+uvx ytdwn --help
+
+# When available
+
+# Or install permanently
+
+uv tool install youtube-downloader# Install pipx# brew install yt-down
+
+```
+
+pip install pipx```
+
+## 📋 Prerequisites
+
+### System Requirements
+
+# Install yt-down### Using pipx (Recommended)
+
+- **Python**: 3.9 or higher
+
+- **Operating System**: Windows, macOS, or Linuxpipx install yt-down
+
+- **Memory**: 512MB RAM minimum
+
+- **Disk Space**: 100MB for installation + space for downloads``````bash
+
+### Required System Dependencies# Install Python if needed
+
+Some systems may need additional packages:### Using uvxbrew install python
+
+#### Ubuntu/Debian
+
+```bash```bash# Install pipx
+
+sudo apt install ffmpeg
+
+```# Install UV firstpip install pipx
+
+
+
+#### macOScurl -LsSf https://astral.sh/uv/install.sh | sh
 
 
 
 ```bash# Install yt-down
 
-# Install pipx if you don't have itpipx install yt-down
+brew install ffmpeg
 
-pip install pipx
-
-# Use from anywhere
-
-# Install yt-downyt-down --help
-
-pipx install yt-down```
+```# Run directlypipx install yt-down
 
 
 
-# Use from anywhere### Using pip (Global Installation)
-
-yt-down --help
-
-```⚠️ **Not recommended** - Use pipx or uvx instead for better isolation
+#### Windowsuvx yt-down --help```
 
 
 
-### Using pip (Global Installation)```bash
-
-pip install yt-down
-
-⚠️ **Not recommended** - Use pipx or uvx instead for better isolation```
-
-makepkg -si
-
-```bash```
-
-pip install yt-down
-
-```### Fedora/RHEL (RPM)
+Download FFmpeg from https://ffmpeg.org/download.html and add to PATH.
 
 
 
-## 🔧 Development Installation```bash
+## 🔄 Updating# Or install permanently## 🪟 Windows Installation
 
-# When available
 
-### From Source (Local Development)# sudo dnf install yt-down
+
+### pipxuv tool install yt-down
+
+
+
+```bash```### Using pip
+
+pipx upgrade youtube-downloader
 
 ```
 
-```bash
+### uvx/uv## 🪟 Windows Installation```bash
 
-# Clone repository## 🔧 Development Installation
+```bash# Install from PowerShell or Command Prompt
 
-git clone https://github.com/ozairx/yt-down.git
+uv tool upgrade youtube-downloader
 
-cd yt-down### From Source
+```### Using pipxpip install yt-down
 
 
 
-# Install with UV (recommended)```bash
+### pip (if used)
 
-uv sync# Clone repository
 
-uv run python main.py --helpgit clone https://github.com/ozairx/yt-down.git
 
-cd yt-down
+```bash```powershell# Use from anywhere
 
-# Or install with pip
+pip install --upgrade youtube-downloader
 
-pip install -e .# Install with UV (recommended)
+```# Install Python from python.org if neededyt-down --help
 
-```uv sync
 
-uv run python main.py --help
 
-### Build from Source
+## 🗑️ Uninstalling```
 
-# Or install with pip
 
-```bashpip install -e .
 
-# Clone and build```
+### pipx# Install pipx
 
-git clone https://github.com/ozairx/yt-down.git
 
-cd yt-down### Build from Source
 
+```bashpip install pipx### Using pipx
 
+pipx uninstall youtube-downloader
 
-# Build wheel```bash
+```# Install yt-down```bash
 
-bash scripts/build.sh# Clone and build
 
-git clone https://github.com/ozairx/yt-down.git
 
-# Install built wheel with pipxcd yt-down
+### uvx/uvpipx install yt-down# Install pipx first
 
-pipx install dist/yt_down-0.1.0-py3-none-any.whl
 
-# Build wheel
 
-# Or with uvxbash scripts/build.sh
+```bash```pip install pipx
 
-uv tool install dist/yt_down-0.1.0-py3-none-any.whl
-
-```# Install built wheel
-
-pipx install dist/yt_down-0.1.0-py3-none-any.whl
-
-## 🍎 macOS Installation```
-
-
-
-### Using pipx (Recommended)## 🍎 macOS Installation
-
-
-
-```bash### Using Homebrew
-
-# Install Python if needed
-
-brew install python```bash
-
-# When available
-
-# Install pipx# brew install yt-down
-
-pip install pipx```
-
-
-
-# Install yt-down### Using pipx (Recommended)
-
-pipx install yt-down
-
-``````bash
-
-# Install Python if needed
-
-### Using uvxbrew install python
-
-
-
-```bash# Install pipx
-
-# Install UV firstpip install pipx
-
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Install yt-down
-
-# Run directlypipx install yt-down
-
-uvx yt-down --help```
-
-
-
-# Or install permanently## 🪟 Windows Installation
-
-uv tool install yt-down
-
-```### Using pip
-
-
-
-## 🪟 Windows Installation```bash
-
-# Install from PowerShell or Command Prompt
-
-### Using pipxpip install yt-down
-
-
-
-```powershell# Use from anywhere
-
-# Install Python from python.org if neededyt-down --help
+uv tool uninstall youtube-downloader
 
 ```
 
-# Install pipx
+### pip (if used)### Using uvx# Install yt-down
 
-pip install pipx### Using pipx
+```bashpipx install yt-down
 
-# Install yt-down```bash
+pip uninstall youtube-downloader
 
-pipx install yt-down# Install pipx first
-
-```pip install pipx
+``````powershell```
 
 
 
-### Using uvx# Install yt-down
-
-pipx install yt-down
-
-```powershell```
-
-# Install UV first
-
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"## 🐳 Container Installation
+## ❓ Troubleshooting# Install UV first
 
 
 
-# Run directly### Docker
+### Common Issuespowershell -c "irm https://astral.sh/uv/install.ps1 | iex"## 🐳 Container Installation
 
-uvx yt-down --help
 
-```bash
 
-# Or install permanently# When available
+1. **Command not found**: Make sure pipx/uv bin directory is in your PATH
 
-uv tool install yt-down# docker run --rm -v $(pwd):/downloads yt-down --url "https://youtu.be/..."
+2. **Permission errors**: Use pipx/uvx instead of system pip
 
-``````
+3. **FFmpeg missing**: Install FFmpeg for your system (see Prerequisites)# Run directly### Docker
 
-## 🐧 Linux Installation## ✅ Verify Installation
 
-### Using pipxAfter installation, verify it works
+
+### Getting Helpuvx yt-down --help
+
+
 
 ```bash```bash
 
-# Install Python and pip if needed (Ubuntu/Debian)# Check version
+# Check installation
+
+ytdwn --version# Or install permanently# When available
+
+
+
+# Get helpuv tool install yt-down# docker run --rm -v $(pwd):/downloads yt-down --url "https://youtu.be/..."
+
+ytdwn --help
+
+``````
+
+# Verbose output for debugging
+
+ytdwn --verbose## 🐧 Linux Installation## ✅ Verify Installation
+
+```
+
+### Using pipxAfter installation, verify it works
+
+### Support
+
+```bash```bash
+
+- **GitHub Issues**: https://github.com/ozairx/youtube_downloader/issues
+
+- **Documentation**: https://github.com/ozairx/youtube_downloader#readme# Install Python and pip if needed (Ubuntu/Debian)# Check version
 
 sudo apt install python3 python3-pipyt-down --version
 

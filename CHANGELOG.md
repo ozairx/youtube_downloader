@@ -9,10 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Nome do projeto alterado para `youtube-downloader`
+- Nome do executável alterado para `ytdwn`
 - Foco na distribuição via pipx e uvx apenas
 - Removido suporte para empacotamento APT e AUR
 - Atualizada documentação de instalação
 - Script de instalação agora prefere UV sobre pipx
+- URLs do repositório atualizadas para refletir novo nome
 
 ### Added
 
@@ -45,5 +48,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dependências: pytube, moviepy, click, tqdm, mutagen
 - Configurações VS Code para desenvolvimento
 
-[Unreleased]: https://github.com/ozairx/yt-down/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/ozairx/yt-down/releases/tag/v0.1.0
+[Unreleased]: https://github.com/ozairx/youtube_downloader/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/ozairx/youtube_downloader/releases/tag/v0.1.0

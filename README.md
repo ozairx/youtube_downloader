@@ -1,10 +1,10 @@
-# YT-Down - YouTube to MP3 Downloader
+# YouTube Downloader - YouTube to MP3 Downloader
 
 Este projeto é uma ferramenta para baixar playlists do YouTube e converter os vídeos para formato MP3.
 
 ## Descrição do Projeto
 
-O **yt-down** é uma aplicação Python que permite:
+O **youtube_downloader** é uma aplicação Python que permite:
 
 - Baixar vídeos individuais ou playlists completas do YouTube
 - Converter automaticamente os vídeos para formato MP3
@@ -26,7 +26,7 @@ O **yt-down** é uma aplicação Python que permite:
 ## Estrutura do Projeto
 
 ```bash
-yt-down/
+youtube_downloader/
 ├── main.py              # Arquivo principal da aplicação
 ├── pyproject.toml       # Configurações do projeto e dependências
 ├── README.md           # Documentação do projeto
@@ -44,18 +44,18 @@ yt-down/
 
 ```bash
 # Usando uvx (mais rápido, sem instalação permanente)
-uvx yt-down --help
+uvx ytdwn --help
 
 # Ou usando pipx (instalação isolada)
-pipx install yt-down
+pipx install youtube-downloader
 ```
 
 ### 🔧 Instalação para Desenvolvimento
 
 ```bash
 # Clone o repositório
-git clone https://github.com/ozairx/yt-down.git
-cd yt-down
+git clone https://github.com/ozairx/youtube_downloader.git
+cd youtube_downloader
 
 # Instale as dependências com UV
 uv sync

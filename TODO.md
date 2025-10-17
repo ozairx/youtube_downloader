@@ -1,4 +1,4 @@
-# 📋 TODO - YT-Down
+# 📋 TODO - YouTube Downloader
 
 ## 📦 Distribuição e Empacotamento
 
@@ -15,8 +15,8 @@
   - [x] Gerar wheel e source distribution
   - [ ] Configurar credenciais do PyPI
   - [ ] Publicar primeira versão (0.1.0)
-  - [ ] Testar instalação via `pipx install yt-down`
-  - [ ] Testar instalação via `uvx yt-down`
+  - [ ] Testar instalação via `pipx install youtube-downloader`
+  - [ ] Testar instalação via `uvx ytdwn`
 
 - [x] **Distribuição moderna via pipx/uvx**
   - [x] Configurar pyproject.toml para instalação via pipx
